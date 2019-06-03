@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "51d85969-b3a4-4c7b-a1a9-9927278d24a8",
+		"name": "uservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CFG encrypt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "password"
+				},
+				"url": "{{configservice_api_uri}}/encrypt"
+			},
+			"response": []
+		},
+		{
+			"name": "CFG decrypt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "d0e979679df36f3da4da67ca5af27def376983f263087031f80c66a2f4f82f19"
+				},
+				"url": "{{configservice_api_uri}}/decrypt"
+			},
+			"response": []
+		},
+		{
+			"name": "CFG castle configuration",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "{{configservice_api_uri}}/castle/default/development"
+			},
+			"response": []
+		},
+		{
+			"name": "CFG castle configuration with auth",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "{{configservice_api_uri}}/castle/default/development"
+			},
+			"response": []
+		},
+		{
+			"name": "CASTLE All",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "{{castleservice_api_uri}}/castles"
+			},
+			"response": []
+		},
+		{
+			"name": "CASTLE Create castle",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "{{castleservice_api_uri}}/castles"
+			},
+			"response": []
+		},
+		{
+			"name": "CASTLE GTW All",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "{{castlegtw_api_uri}}/castles"
+			},
+			"response": []
+		},
+		{
+			"name": "RESERVATION GTW Customer reservation",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "{{castlegtw_api_uri}}/castles"
+			},
+			"response": []
+		},
+		{
+			"name": "RESERVATION Customer reservation",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "{{reservationservice_api_uri}}/reservations/customer/1"
+			},
+			"response": []
+		}
+	]
+}
