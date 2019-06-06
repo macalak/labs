@@ -1,0 +1,5 @@
+
+dependencies {
+    // Logging
+	compile('com.github.pukkaone:logback-gelf:1.1.9')
+}

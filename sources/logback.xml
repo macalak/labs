@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property resource="bootstrap.properties" />
+	<include resource="org/springframework/boot/logging/logback/base.xml" />
+	<jmxConfigurator/>
+
+	<appender name="GRAYLOG2" class="com.github.pukkaone.gelf.logback.GelfAppender">
+		<graylogHost>${GRAYLOG_PROTOCOL:-udp}:${GRAYLOG_SERVER:-172.16.13.117}</graylogHost>
+		<graylogPort>${GRAYLOG_PORT:-12201}</graylogPort>
+		<originHost>${HOST_IP:-dev},${RANCHER_NET_IP:-dev}</originHost>
+		<levelIncluded>true</levelIncluded>
+		<locationIncluded>false</locationIncluded>
+		<loggerIncluded>true</loggerIncluded>
+		<markerIncluded>false</markerIncluded>
+		<mdcIncluded>true</mdcIncluded>
+		<threadIncluded>false</threadIncluded>
+		<facility>gelf-java</facility>
+		<additionalField>application=${spring.cloud.config.name:-undefined}</additionalField>
+		<additionalField>environment=${CONFIG_LABEL:-dev}</additionalField>
+		<marshaller	class="com.github.pukkaone.gelf.logback.DefaultGelfMessageFactory">
+			<fullMessagePattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg %n %X{correlation-id:-}</fullMessagePattern>
+		</marshaller>
+	</appender>
+
+	<logger name="com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver" value="WARN" />
+
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="GRAYLOG2" />
+	</root>
+	
+</configuration>
